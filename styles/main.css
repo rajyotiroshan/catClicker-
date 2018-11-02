@@ -40,6 +40,7 @@ main {
 
 .cat {
 	padding:10px;
+	cursor: pointer;
 }
 
 .cat-display-area {
@@ -49,6 +50,7 @@ main {
 
 .catName {
 	padding:5px;
+	text-align: center;
 }
 
 .catDisplayArea {
