@@ -6,7 +6,8 @@ $(function(){
 	{src:"img/cat_picture2.jpeg",count:0,name:"cat2"},
 	{src:"img/cat_picture3.jpeg",count:0,name:"cat3"},
 	{src:"img/cat_picture4.jpeg",count:0,name:"cat4"},
-	{src:"img/cat_picture5.jpeg",count:0,name:"cat5"}]
+	{src:"img/cat_picture5.jpeg",count:0,name:"cat5"},
+	{src:"img/cat6.jpg",count:0,name:"cat6"}]
 	};
 	/* octopus a medium bw model and view for communication.*/
 	let octopus = {
@@ -18,6 +19,9 @@ $(function(){
 		},
 		setCurrentCat: function(cat) {
 			model.currentCat = cat;
+		},
+		inceamentCounter: function() {
+			model.currentCat.count++;
 		},
 		init: function(){
 			catList.init();
@@ -69,9 +73,10 @@ $(function(){
 			this.catOnDisplay = $(".catOnDisplay");
 			this.catName = $(".catName");
 			this.clickedCount = $(".clickedCount");
-			this.catOnDisplay.attr("src",octopus.getCats()[0].src);
-			this.catName.html(`${octopus.getCats()[0].name}`);
-			this.clickedCount.html("0");
+			this.catOnDisplay.on("click",function(){
+				octopus.inceamentCounter();
+				catDisplay.render();
+			});
 		}
 	};
 
